@@ -16,68 +16,62 @@ import (
 // FParseErrWhitelist configures Flag parse errors to be ignored
 type FParseErrWhitelist flag.ParseErrorsWhitelist
 
-// Command is just that, a command for your application.
-// E.g.  'go run ...' - 'run' is the command. Cobra requires
-// you to define the usage and description as part of your command
-// definition to ensure usability.
+// Command 这就是你的应用程序的命令。
+// 您需要将用法和描述定义为命令定义的一部分，以确保可用性。
 type Command struct {
-	// Use is the one-line usage message.
-	// Recommended syntax is as follow:
-	//   [ ] identifies an optional argument. Arguments that are not enclosed in brackets are required.
-	//   ... indicates that you can specify multiple values for the previous argument.
-	//   |   indicates mutually exclusive information. You can use the argument to the left of the separator or the
-	//       argument to the right of the separator. You cannot use both arguments in a single use of the command.
-	//   { } delimits a set of mutually exclusive arguments when one of the arguments is required. If the arguments are
-	//       optional, they are enclosed in brackets ([ ]).
+	// Use 是一行使用信息。
+	// 建议的语法如下：
+	//   [ ] 标识可选参数。不包含在括号内的参数是必需的。
+	//   ... 指示可以为上一个参数指定多个值。
+	//   | 表示相互排斥的信息。可以使用分隔符左侧的参数，也可以使用分隔符右侧的参数。不能在命令的一次使用中同时使用这两个参数。
+	//   { } 当需要一个参数时，分隔一组相互排斥的参数。如果参数是可选的，则将其括在括号（[]）中。
 	// Example: add [-F file | -D dir]... [-f format] profile
 	Use string
 
-	// Aliases is an array of aliases that can be used instead of the first word in Use.
+	// Aliases 是一组别名，可以用来代替Use中的第一个单词。
 	Aliases []string
 
-	// SuggestFor is an array of command names for which this command will be suggested -
-	// similar to aliases but only suggests.
+	// SuggestFor 是一个命令名数组，该命令将被建议使用类似于别名，但仅建议使用。
 	SuggestFor []string
 
-	// Short is the short description shown in the 'help' output.
+	// Short 是“帮助”输出中显示的简短描述。
 	Short string
 
-	// Long is the long message shown in the 'help <this-command>' output.
+	// Long 是“help<this command>”输出中显示的长消息。
 	Long string
 
-	// Example is examples of how to use the command.
+	// Example 是如何使用该命令的示例。
 	Example string
 
-	// ValidArgs is list of all valid non-flag arguments that are accepted in shell completions
+	// ValidArgs 是shell完成中接受的所有有效非标志参数的列表
 	ValidArgs []string
-	// ValidArgsFunction is an optional function that provides valid non-flag arguments for shell completion.
-	// It is a dynamic version of using ValidArgs.
-	// Only one of ValidArgs and ValidArgsFunction can be used for a command.
+
+	// ValidArgsFunction 是一个可选函数，为shell完成提供有效的非标志参数。
+	// 这是使用ValidArgs的动态版本。
+	// 一个命令只能使用ValidArgs和ValidArgsFunction中的一个。
 	ValidArgsFunction func(cmd *Command, args []string, toComplete string) ([]string, ShellCompDirective)
 
-	// Expected arguments
+	// 预期参数
 	Args PositionalArgs
 
-	// ArgAliases is List of aliases for ValidArgs.
-	// These are not suggested to the user in the shell completion,
-	// but accepted if entered manually.
+	// ArgAliases 是ValidArgs的别名列表。
+	// 在shell completion中不建议用户使用这些选项，但如果手动输入，则可以接受这些选项。
 	ArgAliases []string
 
-	// BashCompletionFunction is custom bash functions used by the legacy bash autocompletion generator.
-	// For portability with other shells, it is recommended to instead use ValidArgsFunction
+	// BashCompletionFunction 是传统bash自动完成生成器使用的自定义bash函数。
+	// 为了便于携带其他Shell，建议改用ValidArgsFunction
 	BashCompletionFunction string
 
-	// Deprecated defines, if this command is deprecated and should print this string when used.
+	// Deprecated 定义，如果此命令已弃用，并且在使用时应打印此字符串。
 	Deprecated string
 
-	// Annotations are key/value pairs that can be used by applications to identify or
-	// group commands.
+	// Annotations 是应用程序可以用来识别或分组命令的键/值对。
 	Annotations map[string]string
 
-	// Version defines the version for this command. If this value is non-empty and the command does not
-	// define a "version" flag, a "version" boolean flag will be added to the command and, if specified,
-	// will print content of the "Version" variable. A shorthand "v" flag will also be added if the
-	// command does not define one.
+	// Version 定义此命令的版本。
+	// 如果该值非空且命令未定义“版本”标志，则将向命令添加“版本”布尔标志
+	// 如果指定，将打印“版本”变量的内容。
+	// 如果命令没有定义，也会添加一个简写的“v”标志。
 	Version string
 
 	// The *Run functions are executed in the following order:
@@ -88,66 +82,90 @@ type Command struct {
 	//   * PersistentPostRun()
 	// All functions get the same args, the arguments after the command name.
 	//
-	// PersistentPreRun: children of this command will inherit and execute.
+	// PersistentPreRun: 此命令的子命令将继承并执行。
 	PersistentPreRun func(cmd *Command, args []string)
-	// PersistentPreRunE: PersistentPreRun but returns an error.
+
+	// PersistentPreRunE: PersistentPreRun 但是返回错误
 	PersistentPreRunE func(cmd *Command, args []string) error
-	// PreRun: children of this command will not inherit.
+
+	// PreRun: 子命令不会继承
 	PreRun func(cmd *Command, args []string)
-	// PreRunE: PreRun but returns an error.
+
+	// PreRunE: PreRun 但是不返回错误
 	PreRunE func(cmd *Command, args []string) error
-	// Run: Typically the actual work function. Most commands will only implement this.
+
+	// Run: 通常是实际的功函数。大多数命令只能实现这一点。
 	Run func(cmd *Command, args []string)
-	// RunE: Run but returns an error.
+
+	// RunE: Run 但是返回一个错误
 	RunE func(cmd *Command, args []string) error
-	// PostRun: run after the Run command.
+
+	// PostRun: 在Run之后执行
 	PostRun func(cmd *Command, args []string)
-	// PostRunE: PostRun but returns an error.
+
+	// PostRunE: PostRun 但是返回一个错误
 	PostRunE func(cmd *Command, args []string) error
-	// PersistentPostRun: children of this command will inherit and execute after PostRun.
+
+	// PersistentPostRun:子命令会继承，并在 PostRun 之后执行
 	PersistentPostRun func(cmd *Command, args []string)
-	// PersistentPostRunE: PersistentPostRun but returns an error.
+
+	// PersistentPostRunE: PersistentPostRun 但是返回错误
 	PersistentPostRunE func(cmd *Command, args []string) error
 
-	// args is actual args parsed from flags.
+	// args 从flags解析的参数
 	args []string
-	// flagErrorBuf contains all error messages from pflag.
+
+	// flagErrorBuf 错误消息
 	flagErrorBuf *bytes.Buffer
-	// flags is full set of flags.
+
+	// flags flags的集合
 	flags *flag.FlagSet
+
 	// pflags contains persistent flags.
 	pflags *flag.FlagSet
-	// lflags contains local flags.
+
+	// lflags 包含本地的 flags.
 	lflags *flag.FlagSet
-	// iflags contains inherited flags.
+
+	// iflags 包含继承的 flags.
 	iflags *flag.FlagSet
+
 	// parentsPflags is all persistent flags of cmd's parents.
 	parentsPflags *flag.FlagSet
+
 	// globNormFunc is the global normalization function
 	// that we can use on every pflag set and children commands
 	globNormFunc func(f *flag.FlagSet, name string) flag.NormalizedName
 
 	// usageFunc is usage func defined by user.
 	usageFunc func(*Command) error
+
 	// usageTemplate is usage template defined by user.
 	usageTemplate string
+
 	// flagErrorFunc is func defined by user and it's called when the parsing of
 	// flags returns an error.
 	flagErrorFunc func(*Command, error) error
+
 	// helpTemplate is help template defined by user.
 	helpTemplate string
+
 	// helpFunc is help func defined by user.
 	helpFunc func(*Command, []string)
+
 	// helpCommand is command with usage 'help'. If it's not defined by user,
 	// cobra uses default help command.
 	helpCommand *Command
+
 	// versionTemplate is the version template defined by user.
 	versionTemplate string
 
 	// inReader is a reader defined by the user that replaces stdin
 	inReader io.Reader
+
 	// outWriter is a writer defined by the user that replaces stdout
 	outWriter io.Writer
+
 	// errWriter is a writer defined by the user that replaces stderr
 	errWriter io.Writer
 
@@ -159,6 +177,7 @@ type Command struct {
 
 	// commandsAreSorted defines, if command slice are sorted or not.
 	commandsAreSorted bool
+
 	// commandCalledAs is the name or alias value used to call this command.
 	commandCalledAs struct {
 		name   string
@@ -169,8 +188,10 @@ type Command struct {
 
 	// commands is the list of commands supported by this program.
 	commands []*Command
+
 	// parent is a parent command for this command.
 	parent *Command
+
 	// Max lengths of commands' string lengths for use in padding.
 	commandsMaxUseLen         int
 	commandsMaxCommandPathLen int
@@ -1125,14 +1146,15 @@ func (c *Command) Commands() []*Command {
 	return c.commands
 }
 
-// AddCommand adds one or more commands to this parent command.
+// AddCommand 添加1个或者多个子命令
 func (c *Command) AddCommand(cmds ...*Command) {
 	for i, x := range cmds {
 		if cmds[i] == c {
 			panic("Command can't be a child of itself")
 		}
 		cmds[i].parent = c
-		// update max lengths
+
+		// 更新最大长度
 		usageLen := len(x.Use)
 		if usageLen > c.commandsMaxUseLen {
 			c.commandsMaxUseLen = usageLen
@@ -1145,6 +1167,7 @@ func (c *Command) AddCommand(cmds ...*Command) {
 		if nameLen > c.commandsMaxNameLen {
 			c.commandsMaxNameLen = nameLen
 		}
+		
 		// If global normalization function exists, update all children
 		if c.globNormFunc != nil {
 			x.SetGlobalNormalizationFunc(c.globNormFunc)

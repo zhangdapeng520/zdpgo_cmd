@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0a0d6341-1369-48ba-a752-b8f576c5591e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/root.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/word.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/word.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/z01_tool/internal/word/word.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/internal/word/word.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/z01_tool/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/cobra/command.go" beforeDir="false" afterPath="$PROJECT_DIR$/libs/cobra/command.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/cobra/command_win.go" beforeDir="false" afterPath="$PROJECT_DIR$/libs/cobra/command_win.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +23,14 @@
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../dev/go/go1.17.3" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
