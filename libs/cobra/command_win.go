@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/inconshreveable/mousetrap"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/mousetrap"
 )
 
 var preExecHookFn = preExecHook

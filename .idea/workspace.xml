@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0d6341-1369-48ba-a752-b8f576c5591e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/json.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/root.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/sql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/time.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/time.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/z01_tool/cmd/word.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/z01_tool/cmd/word.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/cobra/command_win.go" beforeDir="false" afterPath="$PROJECT_DIR$/libs/cobra/command_win.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27QE9rPJR9viWrgvIuW1R4QfHqT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,11 +51,16 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\go\zdpgo\zdpgo_cmd\libs" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
