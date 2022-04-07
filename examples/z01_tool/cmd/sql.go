@@ -3,8 +3,8 @@ package cmd
 import (
 	"log"
 
-	"github.com/spf13/cobra"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/z01_tool/internal/sql2struct"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 )
 
 var username string

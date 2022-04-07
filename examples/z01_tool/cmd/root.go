@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 )
 
 var rootCmd = &cobra.Command{

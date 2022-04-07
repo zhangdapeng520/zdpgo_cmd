@@ -4,8 +4,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/spf13/cobra"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/z01_tool/internal/word"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 )
 
 const (

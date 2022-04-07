@@ -8,7 +8,7 @@ import (
 
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/z01_tool/internal/timer"
 
-	"github.com/spf13/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 )
 
 var timeCmd = &cobra.Command{
