@@ -18,9 +18,13 @@ func Execute() error {
 }
 
 func init() {
-	// 向根命令添加子命令
+	// 向根命令添加word子命令
 	rootCmd.AddCommand(wordCmd)
+
+	// 向根命令添加time子命令
 	rootCmd.AddCommand(timeCmd)
+
+	// 向根命令添加json子命令
 	rootCmd.AddCommand(jsonCmd)
 	rootCmd.AddCommand(sqlCmd)
 }
