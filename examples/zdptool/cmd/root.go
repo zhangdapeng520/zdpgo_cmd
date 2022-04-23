@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/random"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/timer"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/word"
 	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
@@ -19,6 +20,9 @@ func init() {
 
 	// 向根命令添加time子命令
 	rootCmd.AddCommand(timer.TimeCmd)
+
+	// 添加random随机数据命令
+	rootCmd.AddCommand(random.RandomCmd)
 }
 
 // Execute 执行CMD命令
