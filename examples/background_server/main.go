@@ -1,13 +1,3 @@
-# zdpgo_cmd
-使用Golang开发命令行工具的框架，基于corba二次开发
-
-## 版本历史
-- 版本0.1.0 2022年4月24日 新增：后台服务
-
-## 使用示例
-### 后台服务
-示例代码
-```go
 package main
 
 import (
@@ -53,11 +43,3 @@ func main() {
 	// 服务退出
 	fmt.Println(os.Getpid(), "服务退出")
 }
-```
-
-运行方式，以windows为例：
-```shell
-go build
-./background_server.exe
-```
-
