@@ -3,10 +3,10 @@ package main
 import (
 	"embed"
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/daemon"
+	"github.com/zhangdapeng520/zdpgo_cmd"
+	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 	"html/template"
 	"net/http"
-	"os"
 )
 
 //go:embed templates
@@ -24,22 +24,44 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, nil)
 }
 
+var (
+	rootCmd    = &cobra.Command{}
+	background bool // 是否后台运行
+	exit       bool // 是否退出
+)
+
+func init() {
+	rootCmd.Flags().BoolVarP(&background, "background", "b", false, `是否在后台运行服务`)
+	rootCmd.Flags().BoolVarP(&exit, "exit", "e", false, `是否退出后台运行服务`)
+}
+
 func main() {
-	logFile := "daemon.log"
+	c := zdpgo_cmd.New()
 
-	fmt.Println("启动服务：http://localhost:8888")
+	// 创建一个根cmd对象
+	rootCmd.Run = func(cmd *cobra.Command, args []string) {
+		if background {
+			c.RunWithBackGround(func() {
+				server := &http.Server{Addr: ":8888"}
+				http.HandleFunc("/", helloHandler)
+				server.ListenAndServe()
+			})
+		} else {
+			server := &http.Server{Addr: ":8888"}
+			http.HandleFunc("/", helloHandler)
+			server.ListenAndServe()
+		}
 
-	// 启动一个子进程后主程序退出
-	daemon.Background(logFile, true)
+		// 处理退出
+		if exit {
+			err := c.ExitBackground()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println("退出后台服务成功")
+		}
+	}
 
-	// 以下代码只有子程序会执行
-	fmt.Println(os.Getpid(), "启动服务...")
-
-	// 启动服务
-	server := &http.Server{Addr: ":8888"}
-	http.HandleFunc("/", helloHandler)
-	server.ListenAndServe()
-
-	// 服务退出
-	fmt.Println(os.Getpid(), "服务退出")
+	// 执行根rootCmd的命令
+	rootCmd.Execute()
 }
