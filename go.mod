@@ -14,6 +14,6 @@ require golang.org/x/text v0.3.7 // indirect
 
 replace (
 	github.com/zhangdapeng520/zdpgo_env v0.1.1 => ../zdpgo_env
-	github.com/zhangdapeng520/zdpgo_shell v0.1.1 => ../zdpgo_shell
 	github.com/zhangdapeng520/zdpgo_file v1.0.1 => ../zdpgo_file
+	github.com/zhangdapeng520/zdpgo_shell v0.1.1 => ../zdpgo_shell
 )

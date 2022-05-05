@@ -16,8 +16,6 @@ github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/xuri/efp v0.0.0-20210322160811-ab561f5b45e3/go.mod h1:ybY/Jr0T0GTCnYjKqmdwxyxn2BQf2RcQIIvex5QldPI=
 github.com/xuri/excelize/v2 v2.5.0/go.mod h1:rSu0C3papjzxQA3sdK8cU544TebhrPUoTOaGPIh0Q1A=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
-github.com/zhangdapeng520/zdpgo_file v1.0.1 h1:yAuDU4Le5F+eKZyMTFgFsXy/0+r5lFVCBHL2esZIkbw=
-github.com/zhangdapeng520/zdpgo_file v1.0.1/go.mod h1:/EmNnf2nXAAngUSJfPiFcOPFXGiURbHqQoN7lLBLrOY=
 github.com/zhangdapeng520/zdpgo_log v1.3.1 h1:lnRwh47I7orG3k9HIDYYQx3ccgvyCsLVIPsA3yWtfB8=
 github.com/zhangdapeng520/zdpgo_log v1.3.1/go.mod h1:Qnr8tZCpmDWqRfJpw0r5ClUNqdOJwLNXIyXA2IGXv6k=
 github.com/zhangdapeng520/zdpgo_random v1.1.2 h1:EB3qAIBWD3RsxAZCyQNa6dnFlPQMIEVAhMF/+uqecEo=
