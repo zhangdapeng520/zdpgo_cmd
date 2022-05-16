@@ -41,6 +41,7 @@ func (c *Cmd) RunWithBackGround(runFunc func()) error {
 	return nil
 }
 
+// ExitBackground 退出后台任务
 func (c *Cmd) ExitBackground() error {
 	// 如果.env不存在，则创建
 	_, err := os.Stat(c.Config.EnvFileName)
