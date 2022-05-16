@@ -2,7 +2,7 @@ package random
 
 import (
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 	"github.com/zhangdapeng520/zdpgo_random"
 )
 

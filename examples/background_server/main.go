@@ -4,7 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_cmd"
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 	"html/template"
 	"net/http"
 )

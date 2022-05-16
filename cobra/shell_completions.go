@@ -1,7 +1,7 @@
 package cobra
 
 import (
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/pflag"
+	"github.com/zhangdapeng520/zdpgo_cmd/pflag"
 )
 
 // MarkFlagRequired instructs the various shell completion implementations to

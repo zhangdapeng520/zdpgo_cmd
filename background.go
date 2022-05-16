@@ -1,7 +1,7 @@
 package zdpgo_cmd
 
 import (
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/daemon"
+	"github.com/zhangdapeng520/zdpgo_cmd/daemon"
 	"os"
 	"strconv"
 )
@@ -64,6 +64,7 @@ func (c *Cmd) ExitBackground() error {
 	}
 
 	// 关闭进程
-	c.Shell.Kill(pidInt)
+	result := c.Shell.Kill(pidInt)
+	c.Log.Debug("关闭进程成功", "result", result)
 	return nil
 }

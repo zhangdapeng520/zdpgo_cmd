@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 )
 
 const (

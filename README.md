@@ -14,7 +14,7 @@ package main
 import (
 	"embed"
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/daemon"
+	"github.com/zhangdapeng520/zdpgo_cmd/daemon"
 	"html/template"
 	"net/http"
 	"os"

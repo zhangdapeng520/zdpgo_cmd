@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/pflag"
+	"github.com/zhangdapeng520/zdpgo_cmd/pflag"
 )
 
 const (
@@ -529,7 +529,7 @@ func checkIfFlagCompletion(finalCmd *Command, args []string, lastArg string) (*p
 				// Flag is shorthand
 				// We have to get the last shorthand flag name
 				// e.g. `-asd` => d to provide the correct completion
-				// https://github.com/zhangdapeng520/zdpgo_cmd/libs/cobra/issues/1257
+				// https://github.com/zhangdapeng520/zdpgo_cmd/cobra/issues/1257
 				flagName = lastArg[index-1 : index]
 			}
 			lastArg = lastArg[index+1:]
@@ -555,7 +555,7 @@ func checkIfFlagCompletion(finalCmd *Command, args []string, lastArg string) (*p
 						// Flag is shorthand
 						// We have to get the last shorthand flag name
 						// e.g. `-asd` => d to provide the correct completion
-						// https://github.com/zhangdapeng520/zdpgo_cmd/libs/cobra/issues/1257
+						// https://github.com/zhangdapeng520/zdpgo_cmd/cobra/issues/1257
 						flagName = prevArg[len(prevArg)-1:]
 					}
 					// Remove the uncompleted flag or else there could be an error created

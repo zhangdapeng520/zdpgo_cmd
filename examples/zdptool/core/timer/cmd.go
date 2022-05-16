@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 )
 
 // 时间子命令，子命令的入口

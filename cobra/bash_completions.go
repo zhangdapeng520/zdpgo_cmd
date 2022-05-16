@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/pflag"
+	"github.com/zhangdapeng520/zdpgo_cmd/pflag"
 )
 
 // Annotations for Bash completion.

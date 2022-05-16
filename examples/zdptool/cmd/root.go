@@ -1,11 +1,11 @@
 package cmd
 
 import (
+	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/file"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/random"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/timer"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/word"
-	"github.com/zhangdapeng520/zdpgo_cmd/libs/cobra"
 )
 
 // 创建一个根cmd对象

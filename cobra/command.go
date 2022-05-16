@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	flag "github.com/zhangdapeng520/zdpgo_cmd/libs/pflag"
+	flag "github.com/zhangdapeng520/zdpgo_cmd/pflag"
 )
 
 // FParseErrWhitelist configures Flag parse errors to be ignored
@@ -404,7 +404,7 @@ func (c *Command) HelpFunc() func(*Command, []string) {
 	return func(c *Command, a []string) {
 		c.mergePersistentFlags()
 		// The help should be sent to stdout
-		// See https://github.com/zhangdapeng520/zdpgo_cmd/libs/cobra/issues/1002
+		// See https://github.com/zhangdapeng520/zdpgo_cmd/cobra/issues/1002
 		err := tmpl(c.OutOrStdout(), c.HelpTemplate(), c)
 		if err != nil {
 			c.PrintErrln(err)
@@ -1167,7 +1167,7 @@ func (c *Command) AddCommand(cmds ...*Command) {
 		if nameLen > c.commandsMaxNameLen {
 			c.commandsMaxNameLen = nameLen
 		}
-		
+
 		// If global normalization function exists, update all children
 		if c.globNormFunc != nil {
 			x.SetGlobalNormalizationFunc(c.globNormFunc)
@@ -1394,7 +1394,7 @@ func (c *Command) IsAvailableCommand() bool {
 // help topic command; additional help topic command is determined by the
 // fact that it is NOT runnable/hidden/deprecated, and has no sub commands that
 // are runnable/hidden/deprecated.
-// Concrete example: https://github.com/zhangdapeng520/zdpgo_cmd/libs/cobra/issues/393#issuecomment-282741924.
+// Concrete example: https://github.com/zhangdapeng520/zdpgo_cmd/cobra/issues/393#issuecomment-282741924.
 func (c *Command) IsAdditionalHelpTopicCommand() bool {
 	// if a command is runnable, deprecated, or hidden it is not a 'help' command
 	if c.Runnable() || len(c.Deprecated) != 0 || c.Hidden {
