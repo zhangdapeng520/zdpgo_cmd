@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/file"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/random"
 	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/timer"
@@ -9,7 +9,7 @@ import (
 )
 
 // 创建一个根cmd对象
-var rootCmd = &cobra.Command{
+var rootCmd = &zdpgo_cmd.Command{
 	Use:   "",
 	Short: "",
 	Long:  "",

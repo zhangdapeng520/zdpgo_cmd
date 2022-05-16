@@ -2,16 +2,16 @@ package random
 
 import (
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd"
 	"github.com/zhangdapeng520/zdpgo_random"
 )
 
 // RandomCmd 随机数据子命令，子命令的入口
-var RandomCmd = &cobra.Command{
+var RandomCmd = &zdpgo_cmd.Command{
 	Use:   "random",
 	Short: "生成随机数据",
 	Long:  "生成随机数据",
-	Run:   func(cmd *cobra.Command, args []string) {},
+	Run:   func(cmd *zdpgo_cmd.Command, args []string) {},
 }
 
 var (
@@ -21,11 +21,11 @@ var (
 )
 
 // 生成随机字符串
-var strCmd = &cobra.Command{
+var strCmd = &zdpgo_cmd.Command{
 	Use:   "str",
 	Short: "生成随机的字符串",
 	Long:  "生成随机的字符串",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		result = random.Str.Str(length)
 		fmt.Println(result)
 	},

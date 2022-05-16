@@ -2,7 +2,7 @@ package file
 
 import (
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd"
 )
 
 /*
@@ -14,11 +14,11 @@ import (
 */
 
 // 生成随机字符串
-var renameCmd = &cobra.Command{
+var renameCmd = &zdpgo_cmd.Command{
 	Use:   "rename",
 	Short: "重命名文件",
 	Long:  "重命名文件",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		if oldStr == "" {
 			fmt.Println("要替换的字符串不能为空")
 			return

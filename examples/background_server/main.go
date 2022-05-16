@@ -4,7 +4,6 @@ import (
 	"embed"
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_cmd"
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 	"html/template"
 	"net/http"
 )
@@ -25,7 +24,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var (
-	rootCmd    = &cobra.Command{}
+	rootCmd    = &zdpgo_cmd.Command{}
 	background bool // 是否后台运行
 	exit       bool // 是否退出
 )
@@ -39,7 +38,7 @@ func main() {
 	c := zdpgo_cmd.New()
 
 	// 创建一个根cmd对象
-	rootCmd.Run = func(cmd *cobra.Command, args []string) {
+	rootCmd.Run = func(cmd *zdpgo_cmd.Command, args []string) {
 		if background {
 			c.RunWithBackGround(func() {
 				server := &http.Server{Addr: ":8888"}

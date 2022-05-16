@@ -1,4 +1,4 @@
-package cobra
+package zdpgo_cmd
 
 import (
 	"github.com/zhangdapeng520/zdpgo_cmd/pflag"

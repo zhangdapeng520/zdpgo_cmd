@@ -1,10 +1,9 @@
 package word
 
 import (
+	"github.com/zhangdapeng520/zdpgo_cmd"
 	"log"
 	"strings"
-
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 )
 
 const (
@@ -35,13 +34,13 @@ func init() {
 }
 
 // 创建命令
-var WordCmd = &cobra.Command{
+var WordCmd = &zdpgo_cmd.Command{
 	Use:     "word",   // 子命令
 	Short:   "单词格式转换", // 帮助描述
 	Long:    desc,     // 详细描述
 	Example: "zdptool.exe word -m 1 -s hello_word",
 	// 核心实现：命令的内容
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		// 内容
 		var content string
 

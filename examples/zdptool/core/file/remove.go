@@ -2,7 +2,7 @@ package file
 
 import (
 	"fmt"
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
+	"github.com/zhangdapeng520/zdpgo_cmd"
 )
 
 /*
@@ -13,11 +13,11 @@ import (
 @Description: 文件移除相关
 */
 
-var removeCmd = &cobra.Command{
+var removeCmd = &zdpgo_cmd.Command{
 	Use:   "remove",
 	Short: "文件移除相关命令",
 	Long:  "文件移除相关命令",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		// 移除文件夹的后缀
 		if suffix {
 			err := file.RemoveDirFilesSuffix(removeDirPath)

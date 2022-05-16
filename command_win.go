@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package cobra
+package zdpgo_cmd
 
 import (
 	"fmt"

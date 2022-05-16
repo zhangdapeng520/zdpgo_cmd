@@ -1,28 +1,27 @@
 package timer
 
 import (
+	"github.com/zhangdapeng520/zdpgo_cmd"
 	"log"
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/zhangdapeng520/zdpgo_cmd/cobra"
 )
 
 // 时间子命令，子命令的入口
-var TimeCmd = &cobra.Command{
+var TimeCmd = &zdpgo_cmd.Command{
 	Use:   "time",
 	Short: "时间格式处理",
 	Long:  "时间格式处理",
-	Run:   func(cmd *cobra.Command, args []string) {},
+	Run:   func(cmd *zdpgo_cmd.Command, args []string) {},
 }
 
 // 当前时间子命令
-var nowTimeCmd = &cobra.Command{
+var nowTimeCmd = &zdpgo_cmd.Command{
 	Use:   "now",
 	Short: "获取当前时间",
 	Long:  "获取当前时间",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		nowTime := getNowTime()
 		log.Printf("输出结果: %s, %d", nowTime.Format("2006-01-02 15:04:05"), nowTime.Unix())
 	},
@@ -49,13 +48,13 @@ func init() {
 }
 
 // 计算时间子命令
-var calculateTimeCmd = &cobra.Command{
+var calculateTimeCmd = &zdpgo_cmd.Command{
 	Use:   "calc",
 	Short: "计算所需时间",
 	Long:  "计算所需时间",
 
 	// 核心方法，命令的实现
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		// 当前时间
 		var currentTimer time.Time
 
