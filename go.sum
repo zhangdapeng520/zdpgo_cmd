@@ -1,4 +1,7 @@
-github.com/zhangdapeng520/zdpgo_log v1.3.3/go.mod h1:Qnr8tZCpmDWqRfJpw0r5ClUNqdOJwLNXIyXA2IGXv6k=
+github.com/zhangdapeng520/zdpgo_env v0.1.1 h1:RJSikqzkaXtQQhSCRljpw+M+1XJo2ryPUVmMjHD6bVw=
+github.com/zhangdapeng520/zdpgo_env v0.1.1/go.mod h1:d7F2N66Bc/lZtGEGgOU1X8NnA8NnxhQRbELqJihhvR4=
+github.com/zhangdapeng520/zdpgo_file v1.0.3 h1:i4gPenWPVnqRAQP/w1KT9hfnD1//8E0dy5vU8lrTdZE=
+github.com/zhangdapeng520/zdpgo_file v1.0.3/go.mod h1:0BmzUnjfq8hpdH9IsiXQvoygwDaV6/UoTxipgvwAa9g=
 github.com/zhangdapeng520/zdpgo_log v1.3.4 h1:hHB+ELh0zaBe5NLyASTDZ1qFnpkiFcOM582Phen1B7w=
 github.com/zhangdapeng520/zdpgo_log v1.3.4/go.mod h1:Qnr8tZCpmDWqRfJpw0r5ClUNqdOJwLNXIyXA2IGXv6k=
 github.com/zhangdapeng520/zdpgo_random v1.1.2 h1:EB3qAIBWD3RsxAZCyQNa6dnFlPQMIEVAhMF/+uqecEo=
