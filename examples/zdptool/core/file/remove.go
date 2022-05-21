@@ -27,15 +27,27 @@ var removeCmd = &zdpgo_cmd.Command{
 				fmt.Println("移除文件夹中所有文件的后缀失败")
 			}
 		}
+
+		// 移除文件夹
+		if dir {
+			flag := file.DeleteDir(removeDirPath)
+			if flag {
+				fmt.Println("删除文件夹成功")
+			} else {
+				fmt.Println("删除文件夹失败")
+			}
+		}
 	},
 }
 
 var (
 	suffix        bool
+	dir           bool
 	removeDirPath string
 )
 
 func init() {
 	removeCmd.Flags().BoolVarP(&suffix, "suffix", "s", false, `是否移除文件夹所有文件后缀`)
+	removeCmd.Flags().BoolVarP(&dir, "dir", "d", false, `是否移除文件夹`)
 	removeCmd.Flags().StringVarP(&removeDirPath, "path", "p", "./", `文件夹目录`)
 }
