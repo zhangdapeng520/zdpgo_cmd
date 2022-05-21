@@ -3,7 +3,7 @@ package random
 import (
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_cmd"
-	"github.com/zhangdapeng520/zdpgo_random"
+	"zdptool/g"
 )
 
 // RandomCmd 随机数据子命令，子命令的入口
@@ -17,7 +17,6 @@ var RandomCmd = &zdpgo_cmd.Command{
 var (
 	length int
 	result string
-	random = zdpgo_random.New(zdpgo_random.RandomConfig{})
 )
 
 // 生成随机字符串
@@ -26,7 +25,7 @@ var strCmd = &zdpgo_cmd.Command{
 	Short: "生成随机的字符串",
 	Long:  "生成随机的字符串",
 	Run: func(cmd *zdpgo_cmd.Command, args []string) {
-		result = random.Str.Str(length)
+		result = g.Random.Str(length)
 		fmt.Println(result)
 	},
 }

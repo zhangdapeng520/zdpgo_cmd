@@ -3,6 +3,7 @@ package file
 import (
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_cmd"
+	"zdptool/g"
 )
 
 /*
@@ -23,10 +24,10 @@ var renameCmd = &zdpgo_cmd.Command{
 			fmt.Println("要替换的字符串不能为空")
 			return
 		}
-		err := file.ReplaceDirFilesName(dirPath, oldStr, newStr)
-		if err != nil {
-			fmt.Println(err.Error())
-			return
+		if g.File.ReplaceDirFilesName(dirPath, oldStr, newStr) {
+			fmt.Println("重命名文件夹中所有文件成功")
+		} else {
+			fmt.Println("重命名文件夹中所有文件失败")
 		}
 	},
 }

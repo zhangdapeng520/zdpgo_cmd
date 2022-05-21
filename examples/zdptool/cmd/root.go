@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"github.com/zhangdapeng520/zdpgo_cmd"
-	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/file"
-	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/random"
-	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/timer"
-	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/core/word"
+	"zdptool/core/file"
+	"zdptool/core/random"
+	"zdptool/core/timer"
+	"zdptool/core/word"
 )
 
 // 创建一个根cmd对象
@@ -24,6 +24,5 @@ func init() {
 
 // Execute 执行CMD命令
 func Execute() error {
-	// 执行根rootCmd的命令
-	return rootCmd.Execute()
+	return rootCmd.Execute() // 执行根rootCmd的命令
 }

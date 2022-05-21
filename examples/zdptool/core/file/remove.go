@@ -3,6 +3,7 @@ package file
 import (
 	"fmt"
 	"github.com/zhangdapeng520/zdpgo_cmd"
+	"zdptool/g"
 )
 
 /*
@@ -20,12 +21,11 @@ var removeCmd = &zdpgo_cmd.Command{
 	Run: func(cmd *zdpgo_cmd.Command, args []string) {
 		// 移除文件夹的后缀
 		if suffix {
-			err := file.RemoveDirFilesSuffix(removeDirPath)
-			if err != nil {
-				fmt.Println(err.Error())
-				return
+			if g.File.RemoveDirFilesSuffix(removeDirPath) {
+				fmt.Println("移除文件夹中所有文件的后缀成功")
+			} else {
+				fmt.Println("移除文件夹中所有文件的后缀失败")
 			}
-			fmt.Println("移除文件夹中所有文件的后缀成功")
 		}
 	},
 }

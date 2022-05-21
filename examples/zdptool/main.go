@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/zhangdapeng520/zdpgo_cmd/examples/zdptool/cmd"
+	"zdptool/cmd"
 )
 
 func main() {
