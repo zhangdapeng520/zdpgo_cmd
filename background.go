@@ -8,7 +8,7 @@ import (
 
 func (c *Cmd) RunWithBackGround(runFunc func()) error {
 	// 启动一个子进程后主程序退出
-	_, _ = daemon.Background(c.Config.LogFileName, true)
+	_, _ = daemon.Background(Log.Config.LogFilePath, true)
 
 	// 如果.env不存在，则创建
 	_, err := os.Stat(c.Config.EnvFileName)
@@ -17,21 +17,21 @@ func (c *Cmd) RunWithBackGround(runFunc func()) error {
 	}
 
 	// 将PID写入到环境变量
-	err = c.Env.Load(c.Config.EnvFileName)
+	err = Env.Load(c.Config.EnvFileName)
 	if err != nil {
-		c.Log.Error(err.Error())
+		Log.Error(err.Error())
 		return err
 	}
 	var envMap = make(map[string]string)
-	if fileMap, ok := c.Env.FileEnvMap[c.Config.EnvFileName]; ok {
+	if fileMap, ok := Env.FileEnvMap[c.Config.EnvFileName]; ok {
 		envMap = fileMap
 	}
 	envMap[c.Config.PidName] = strconv.Itoa(os.Getpid())
 
 	// 写入环境变量
-	err = c.Env.WriteNew(c.Config.EnvFileName, envMap)
+	err = Env.WriteNew(c.Config.EnvFileName, envMap)
 	if err != nil {
-		c.Log.Error(err.Error())
+		Log.Error(err.Error())
 		return err
 	}
 
@@ -50,22 +50,22 @@ func (c *Cmd) ExitBackground() error {
 	}
 
 	// 加载环境变量
-	err = c.Env.Load(c.Config.EnvFileName)
+	err = Env.Load(c.Config.EnvFileName)
 	if err != nil {
-		c.Log.Error(err.Error())
+		Log.Error(err.Error())
 		return err
 	}
 
 	// 获取进程号
-	pid := c.Env.Get(c.Config.PidName)
+	pid := Env.Get(c.Config.PidName)
 	pidInt, err := strconv.Atoi(pid)
 	if err != nil {
-		c.Log.Error(err.Error())
+		Log.Error(err.Error())
 		return err
 	}
 
 	// 关闭进程
-	result := c.Shell.Kill(pidInt)
-	c.Log.Debug("关闭进程成功", "result", result)
+	result := Shell.Kill(pidInt)
+	Log.Debug("close process success", "result", result)
 	return nil
 }

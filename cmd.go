@@ -6,36 +6,29 @@ import (
 	"github.com/zhangdapeng520/zdpgo_shell"
 )
 
+var (
+	Log   *zdpgo_log.Log
+	Shell = zdpgo_shell.New()
+	Env   = zdpgo_env.New()
+)
+
 type Cmd struct {
 	Config *Config
-	Shell  *zdpgo_shell.Shell
-	Env    *zdpgo_env.Env
-	Log    *zdpgo_log.Log
 }
 
-func New() *Cmd {
-	return NewWithConfig(Config{})
+func New(log *zdpgo_log.Log) *Cmd {
+	return NewWithConfig(&Config{}, log)
 }
 
-func NewWithConfig(config Config) *Cmd {
-	c := Cmd{}
+func NewWithConfig(config *Config, log *zdpgo_log.Log) *Cmd {
+	c := &Cmd{}
 	if config.PidName == "" {
 		config.PidName = "zdpgo_cmd_background_pid"
 	}
 	if config.EnvFileName == "" {
 		config.EnvFileName = ".env"
 	}
-	if config.LogFileName == "" {
-		config.LogFileName = "logs/zdpgo/zdpgo_cmd.log"
-	}
-	c.Config = &config
-	c.Shell = zdpgo_shell.New()
-	c.Env = zdpgo_env.New()
-	c.Log = zdpgo_log.NewWithConfig(zdpgo_log.Config{
-		Debug:        config.Debug,
-		OpenJsonLog:  true,
-		OpenFileName: false,
-		LogFilePath:  config.LogFileName,
-	})
-	return &c
+	c.Config = config
+	Log = log
+	return c
 }
