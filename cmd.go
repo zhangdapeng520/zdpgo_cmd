@@ -6,14 +6,11 @@ import (
 	"github.com/zhangdapeng520/zdpgo_shell"
 )
 
-var (
-	Log   *zdpgo_log.Log
-	Shell = zdpgo_shell.New()
-	Env   = zdpgo_env.New()
-)
-
 type Cmd struct {
 	Config *Config
+	Log    *zdpgo_log.Log
+	Shell  *zdpgo_shell.Shell
+	Env    *zdpgo_env.Env
 }
 
 func New(log *zdpgo_log.Log) *Cmd {
@@ -29,6 +26,8 @@ func NewWithConfig(config *Config, log *zdpgo_log.Log) *Cmd {
 		config.EnvFileName = ".env"
 	}
 	c.Config = config
-	Log = log
+	c.Log = log
+	c.Shell = zdpgo_shell.New()
+	c.Env = zdpgo_env.New()
 	return c
 }
